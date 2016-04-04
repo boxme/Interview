@@ -1,0 +1,10 @@
+For the first round of the competition, there will be 128/2 = 64 matches.
+Follow by 64/2 = 32, then 32/2 = 16, 16/2 = 8, 8/2 = 4, 4/2 = 2, & finally, 2 / 2 = 1.
+
+Hence, you need 64+32+16+8+4+2+1 = 127 matches to determine the best player out of 128 players.
+
+If you need to find out the 2nd best player, then you need to get all the players who have lost directly to the
+best player to compete amongst each other. Then the winner will be the second best.
+
+The best player beat a total of 7 players in total. So you will need a total of 6 matches to find the best amongst 
+them. Hence, 127 + 6 = 133 matches in total
