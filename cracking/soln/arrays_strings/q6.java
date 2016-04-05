@@ -32,7 +32,7 @@ class Rotate90
 	{
 	    topLeft.setRow(i);
 	    topRight.setCol(N - 1 - i);
-	    btmLeft.setCol(N - 1 - i);
+	    btmLeft.setCol(i);
 	    btmRight.setRow(N - 1 - i);
 
 	    for (int j = i; j < N - 1 - i; j++)
@@ -51,16 +51,13 @@ class Rotate90
     private void swap(Pair topLeft, Pair topRight, Pair btmLeft, Pair btmRight)
     {
 	if (topLeft == null || topRight == null || btmLeft == null || btmRight == null) return;
-
-	int topLeft = array[topLeft.row][topLeft.col];
-	int topRight = array[topRight.row][topRight.col];
-	int btmLeft = array[btmLeft.row][btmLeft.col];
-	int btmRight = array[btmRight.row][btmRight.col];
-
-	array[topLeft.row][topLeft.col] = btmLeft;
-	array[topRight.row][topRight.col] = topLeft;
-	array[btmRight.row][btmRight.col] = topRight;
-	array[btmLeft.row][btmLeft.col] = btmRight;
+	
+	// Better solution to swapping from the book
+	int temp = array[topRight.row][topRight.col];
+	array[topRight.row][topRight.col] = array[topLeft.row][topLeft.col];
+	array[topLeft.row][topLeft.col] = array[btmLeft.row][btmLeft.col];
+	array[btmLeft.row][btmLeft.col] = array[btmRight.row][btmRight.col];
+	array[btmRight.row][btmRight.col] = temp;
     }
 }
 

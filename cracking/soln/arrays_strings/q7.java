@@ -21,6 +21,9 @@ class ResetToZero
 
 	int M = array.size();
 	int N = array[0].size();
+	
+	// Use a bit vector to make this more efficient
+	// One bit vector for col, one for row
 
 	List<Pair> list = new ArrayList<>();
 

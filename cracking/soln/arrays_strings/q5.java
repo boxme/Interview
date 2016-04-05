@@ -35,36 +35,62 @@ class Compress
 
 	HashMap<Character, Integer> hash = new HashMap<>();
 	
+	// Take note of the edge case where size > single digit
+	int newLen = countCompression(input);
+	if (newLen >= len) return input;
+
+	// If we aren't allowed to us string buffer, then we need to use char array
+	StringBuffer buffer = new StringBuffer();
 	int len = input.length();
-	int newLen = 0;
+	char last = input.charAt(0);
+	int count = 1;
 	for (int i = 0; i < len; ++i)
 	{
 	    char c = input.charAt(i);
-	    if (hash.containsKey(c))
+
+	    if (c == last)
 	    {
-		hash.put(c, hash.get(c) + 1);
+		count++;
 	    }
 	    else
 	    {
-		newLen += 2;
-		hash.put(c, 1);
+		buffer.append(last);
+		buffer.append(count);
+
+		last = c;
+		count = 1;
 	    }
-	} 
-
-	if (newLen >= len) return input;
-
-	StringBuffer buffer = new StringBuffer();
-	for (int i = 0; i < len;)
-	{
-	    char c = input.charAt(i);
-	    int count = hash.get(c);
-
-	    buffer.append(c);
-	    buffer.append(count);
-
-	    i += count;
 	}
+	
+	buffer.append(last);
+	buffer.append(count);
 
 	return buffer.toString();
+    }
+
+    // Better way to count
+    private int countCompression(String input)
+    {
+	int len = input.length();
+	int count = 1;
+	char last = input.charAt(0);
+	int newLen = 0;
+	for (int i = 1; i < len; ++i)
+	{
+	    char c = input.charAt(i);
+	    if (last == c)
+	    {
+		count++;
+	    }
+	    else
+	    {
+		last = c;
+		newLen += 1 + String.value(count).length();
+		count = 1;
+	    }
+	}
+	
+	newLen += 1 + String.value(count).length();
+	return newLen;
     }
 }
