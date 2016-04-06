@@ -94,17 +94,20 @@ class MergeSortLinkedList
 	// divide two halves then merge
 	Node aHead = node;
 	
-	Node back = ahead;
-	Node front = moveOneStep(back);
+	Node aTail;
+	Node back = aHead;
+	Node front = aHead;
 
-	while (front != null && front.next != null)
+	while (front != null && front.next != null && front.next.next != null)
 	{
+	    aTail = back;
 	    back = moveOneStep(back);
 	    front = moveOneStep(front);
 	    front = moveOneStep(front);
 	}
 	
-	Node bHead = back.next;
+	Node bHead = back;
+	aTail.next = null;
 
 	aHead = mergeSort(aHead);
 	bHead = mergeSort(bHead);
