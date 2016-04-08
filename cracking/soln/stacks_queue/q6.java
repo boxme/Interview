@@ -67,6 +67,26 @@ class SortStack
 
 	return sorted.pop();
     }
+
+    // Solution from the book
+    private Stack sortStack(Stack unsorted)
+    {
+	if (unsorted == null) return null;
+
+	Stack sorted = new Stack();
+	while (!unsorted.isEmpty())
+	{
+	    int temp = unsorted.pop();
+	    while (!sorted.isEmpty() && sorted.peek() > temp)
+	    {
+		unsorted.push(sorted.pop());
+	    }
+
+	    sorted.push(temp);
+	}
+
+	return sorted;
+    }
 }
 
 class Node
