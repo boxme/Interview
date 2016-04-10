@@ -79,3 +79,52 @@ class PrintPath
 	System.out.println(path.toString());
     }
 }
+
+// Book solution
+public static void findSum(Node root, int sum)
+{
+    int depth = treeDepth(root);
+    int[] path = new int[depth];
+    findSum(root, sum, path, 0);
+}
+
+// Pre-order traversal
+public static void findSum(Node root, int sum, int[] path, int level)
+{
+    if (root == null) return;
+
+    path[level] = root.data;
+
+    // Look for paths
+    int curr = 0;
+    for (int i = level; i >= 0; --i)
+    {
+	curr += path[i];
+	if (curr == sum)
+	{
+	    print(path, i, level);
+	}
+    }
+
+    findSum(root.left, sum, path, level + 1);
+    findSum(root.right, sum, path, level + 1);
+
+    path[level] = Integer.MIN_VALUE;
+}
+
+private static void print(int[] path, int start, int end)
+{
+    for (int i = start; i <= end; ++i)
+    {
+	System.out.print(path[i]) + " "; 
+    }
+
+    System.out.println();
+}
+
+private static int treeDepth(Node root)
+{
+    if (root == null) return 0;
+
+    return Math.max(treeDepth(root.left), treeDepth(root.right)) + 1;
+}

@@ -87,3 +87,73 @@ class Pair
 	this.depth = depth;
     }
 }
+
+// Book solution
+public static List<List<Node>> createLevelLinkedList(Node root)
+{
+    if (root == null) return null;
+
+    List<List<Node>> lists = new ArrayList<>();
+    createLevelLinkedList<roots, lists, 0);
+
+    return lists;
+}
+
+public static void createLevelLinkedList(Node root, List<List<Node>> lists, int level)
+{
+    if (lists == null) return;
+
+    List<Node> list = null;
+    if (lists.size() == level)
+    {
+	list = new ArrayList<>();
+	lists.add(list);
+    }
+    else
+    {
+	list = lists.get(level);
+    }
+
+    list.add(root);
+
+    createLevelLinkedList(root.left, lists, level + 1);
+    createLevelLinkedList(root.right, lists, level + 1);
+}
+
+// BFS solution
+public static List<LinkedList<Node>> createLevelLL(Node root)
+{
+    if (root == null) return null;
+
+    List<LinkedList<Node>> lists = new ArrayList<>();
+
+    LinkedList<Node> current = new LinkedList<>();
+    
+    current.add(root);
+
+    while (!current.isEmpty())
+    { 
+        // Add previous level
+	lists.add(current);
+
+	LinkedList<Node> parents = current;
+	
+	// New level
+	current = new LinkedList<>();
+
+	for (Node parent : parents)
+	{
+	    if (parent.left != null)
+	    {
+		current.add(parent.left);
+	    }
+
+	    if (parent.right != null)
+	    {
+		current.add(parent.right);
+	    }
+	}
+    }
+
+    return lists;
+}

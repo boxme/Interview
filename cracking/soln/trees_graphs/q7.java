@@ -53,3 +53,45 @@ class Node
     Node right;
     Node parent;
 }
+
+// Book solution
+class Result
+{
+    Node node;
+    boolean isAncestor;
+
+    public Result(Node node, isAncestor)
+    {
+	this.node = node;
+	this.isAncestor = isAncestor;
+    }
+}
+
+public static Result commonAncestor(Node root, Node a, Node b)
+{
+    if (root == null) return new Result(null, false);
+
+    if (root == a && root == b) return new Result(root, true);
+
+    Result left = commonAncestor(root.left, a, b);
+    if (left.isAncestor) return left;
+
+    Result right = commonAncestor(root.right, a, b);
+    if (right.isAncestor) return right;
+
+    if (left.node != null && rigth.node != null)
+    {
+	// Current root is the ancestor
+	return new Result(root, true);
+    }
+    else if (root == a || root == b)
+    {
+	// Subtree of a or b might contain either a/b, which then makes it an ancestor
+	boolean isAncestor = left.node != null || right.node != null ? true : false;
+	return new Result(root, isAncestor);
+    }
+    else
+    {
+	return new Result(left.node != null ? left.node : right.node, false);
+    }
+}
