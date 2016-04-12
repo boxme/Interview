@@ -55,3 +55,26 @@ class Pair
 	this.col = col;
     }
 }
+
+// Book solution: easy version
+public static boolean findElement(int[][] matrix, int element)
+{
+    int row = 0;
+    int col = matrix[row].length - 1;
+
+    while (row < matrix.length && col >= 0)
+    {
+	if (matrix[row][col] == element) return true;
+
+	if (matrix[row][col] > element)
+	{
+	    col--;
+	} 
+	else
+	{
+	    row++;
+	}
+
+	return false;
+    }
+}

@@ -41,3 +41,48 @@ public static int binarySearchString(String[] array, int lo, int hi, String text
 	return binarySearchString(array, mid + 1, hi, text);
     }
 }
+
+// Book solution
+public static int searchR(String[] strings, int lo, int hi, String str)
+{
+    if (lo > hi) return -1;
+
+    int mid = hi - lo / 2 + lo;
+
+    if (strings[mid].isEmpty())
+    {
+	// Search for the nearest non-empty string
+	int left = mid - 1;
+	int right = mid + 1;
+	while (true)
+	{
+	    if (lo > left || hi < right) return -1;
+
+	    if (!string[left].isEmpty())
+	    {
+		mid = left;
+		break;
+	    }
+
+	    if (!string[right].isEmpty())
+	    {
+		mid = right;
+		break;
+	    }
+
+	    left--;
+	    right++;
+	}
+    }
+    
+    // String found
+    if (strings[mid].equals(str)) return mid;
+
+    if (strings[mid].compareTo(str) > 0)
+    {
+	// Search left
+	return searchR(strings, lo, mid - 1, str);
+    }
+
+    return searchR(strings, mid + 1, hi, str);
+}
