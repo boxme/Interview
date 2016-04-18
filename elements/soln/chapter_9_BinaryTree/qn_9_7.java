@@ -62,7 +62,7 @@ class qn_9_7 {
         // Build left subtree
         node.left = recreateBinaryTreeHelperFromPostOrder(
                 inOrder, inOrderStart, index,
-                postOrder, postOrderEnd, postOrderEnd - rightSubTreeSize - 1,
+                postOrder, postOrderStart, postOrderEnd - rightSubTreeSize - 1,
                 nodeToIndexMap);
 
         // Build right subtree
