@@ -2,6 +2,25 @@ import java.util.*;
 
 class qn_14_1 {
 
+    public static void main(String[] args)
+    {
+	// satisfyBST(node, Integer.MIN_VALUE, Integer.MAX_VALUE)
+    }
+
+    public boolean satisfyBST(Node node, int lo, int hi)
+    {
+	if (node == null) return true;
+
+	int val = node.value;
+	if (val < lo || val > hi)
+	{
+	    return false;
+	}
+
+	return satisfyBST(node.left, lo, val) && satisfyBST(node.right, val, hi);
+    }
+
+    // Wrong solution
     public boolean satisfyBSTProperty(Node tree) {
         if (tree == null) return true;
 
