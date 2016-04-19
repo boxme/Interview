@@ -26,6 +26,7 @@ class qn_14_8 {
     class Node {
         int value;
         Node prev;
+	// Only this pointer is used for a singly linkedlist
         Node next;
     }
 }
