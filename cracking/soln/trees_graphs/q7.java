@@ -87,7 +87,7 @@ public static Result commonAncestor(Node root, Node a, Node b)
     else if (root == a || root == b)
     {
 	// Subtree of a or b might contain either a/b, which then makes it an ancestor
-	boolean isAncestor = left.node != null || right.node != null ? true : false;
+	boolean isAncestor = (left.node != null || right.node != null) ? true : false;
 	return new Result(root, isAncestor);
     }
     else
