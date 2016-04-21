@@ -20,7 +20,7 @@ class qn_14_14 {
         }
 
         // Both searches are unsuccessful in find a path to m from either r & s
-        if (searchR == s || searchS == m || (searchR != m && searchS != m)) {
+        if (searchR == s || searchS == r || (searchR != m && searchS != m)) {
             return false;
         }
 
