@@ -11,7 +11,7 @@ class PriorityQueue
 
     public PriorityQueue(int size)
     {
-	this.size = size;
+	this.size = 0;
 	array = new int[size + 1];
     }
 
