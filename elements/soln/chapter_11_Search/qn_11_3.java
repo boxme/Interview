@@ -12,7 +12,7 @@ class qn_11_3 {
 
             if (value = 0) {
                 return mid;
-            } else if (value > 0) {
+            } else if (value < 0) {
                 lo = mid + 1;
             } else {
                 hi = mid - 1;
