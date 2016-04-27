@@ -31,7 +31,6 @@ private static class QuickSort
 
 	int pivotPos = pivotPosition(i , j);
 	int pivotVal = array[pivotPos];
-	int leftMostVal = array[i];
 	
 	swap(pivotPos, i);
 	
