@@ -51,8 +51,8 @@ class Pair
 
     public Pair(int row, int col)
     {
-	this.row = row;
-	this.col = col;
+        this.row = row;
+        this.col = col;
     }
 }
 
@@ -64,17 +64,17 @@ public static boolean findElement(int[][] matrix, int element)
 
     while (row < matrix.length && col >= 0)
     {
-	if (matrix[row][col] == element) return true;
+        if (matrix[row][col] == element) return true;
 
-	if (matrix[row][col] > element)
-	{
-	    col--;
-	} 
-	else
-	{
-	    row++;
-	}
+        if (matrix[row][col] > element)
+        {
+            col--;
+        }
+        else
+        {
+            row++;
+        }
+    }
 
 	return false;
-    }
 }
