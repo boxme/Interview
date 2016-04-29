@@ -1,0 +1,1 @@
+Find out if the LSB of n is at the 0th position
