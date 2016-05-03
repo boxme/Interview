@@ -30,7 +30,7 @@ class qn_13_10 {
 
     class Event {
         int startTime;
-        in endTime;
+        int endTime;
     }
 
     class EndPoint implements Comparable<EndPoint> {
