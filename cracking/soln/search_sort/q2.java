@@ -36,7 +36,7 @@ class AnagramComparator implements Comparator<String>
 
     private String sort(String string)
     {
-	char[] array = strig.toCharArray();
+	char[] array = string.toCharArray();
 	Arrays.sort(array);
 
 	return String.valueOf(array);

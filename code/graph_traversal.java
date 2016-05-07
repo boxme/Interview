@@ -77,8 +77,8 @@ class DFS
     {
 	setup();
 	
-	visited[root] = root;
-	parent[root];
+	visited[root] = 1;
+	parent[root] = root;
 	Stack<Integer> stack = new Stack<>();
 	stack.push(root);
 

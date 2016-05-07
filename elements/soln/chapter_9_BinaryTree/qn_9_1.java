@@ -21,7 +21,7 @@ class qn_9_1 {
         int rightHeight = checkHeight(node.right);
         
         isTreeBalanced = (Math.abs(leftHeight - rightHeight) <= 1);
-        return Math.max(leftHeight, rightHeight);
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 
     class Node {

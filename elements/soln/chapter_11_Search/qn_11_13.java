@@ -29,7 +29,7 @@ class qn_11_13 {
         swap(hi, pivotIdx, array); // Move pivot to the end instead of left as in quicksort
 
         int left = lo;
-        for (int i = left; i < hi; ++i) {
+        for (int i = lo; i < hi; ++i) {
             if (array[i] > value) { // If searching for smallest k-th, then do array[i] < value
                 swap(i, left, array);
                 left++;

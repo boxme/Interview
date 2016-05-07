@@ -21,7 +21,7 @@ class qn_14_15 {
             RangeLookupBSTHelper(tree.getRight(), interval, result);
         } else if (interval.left > tree.getData()) {
             RangeLookupBSTHelper(tree.getRight(), interval, result);
-        } else { // interval.right >= tree.getData()
+        } else { // interval.right <= tree.getData()
             RangeLookupBSTHelper(tree.getLeft(), interval, result);
         }
     }

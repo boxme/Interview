@@ -71,9 +71,6 @@ public class qn_14_10
 	if (left == null) return right;
 	if (right == null) return left;
 
-	int leftSize = getLengthOfLL(left);
-	int rightSize = getLengthOfLL(right);
-
 	Node head = null;
 	Node tail = null;
 	while (left != null && right != null)

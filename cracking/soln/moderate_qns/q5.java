@@ -30,7 +30,7 @@ public class q5
 		continue;
 	    }
 
-	    if (pastSlot.hasKey(guess) && pastSlow.get(guess))
+	    if (pastSlot.hasKey(guess) && pastSlot.get(guess))
 	    {
 		pseudoHit++;
 		pastSlow.put(guess, false);

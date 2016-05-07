@@ -19,7 +19,7 @@ public static Pair 2dBinarySearch(int[][] array, int left, int right, int top, i
     if (array[midRow][midCol] == num) return new Pair(midRow, midCol);
 
     // Check row range
-    if (array[midRow][left] <= num && num <= array[midRow][right)
+    if (array[midRow][left] <= num && num <= array[midRow][right])
     {
 	// Stick with this row
 
