@@ -10,6 +10,7 @@ public class palindromes_in_string
 	getAllPalindrome(s, 0, s.length() - 1);
     }
 
+    // Own solution
     private void getAllPalindrome(String s, int start, int end)
     {
 	if (start < 0 || end >= s.length()) return;
@@ -31,11 +32,13 @@ public class palindromes_in_string
 	{
 	    // Odd
 	    getPalindromeInOddLen(s, mid, start, end);
+	    getPalindromeInEvenLen(s, mid, start, end);
+	    getPalindromeInEvenLen(s, mid - 1, start, end);
 	}
 	else
 	{
 	    //Even
-	    getPalindromeInEvenLen(s, start, end);
+	    getPalindromeInEvenLen(s, mid, start, end);
 	    getPalindromeInOddLen(s, mid, start, end);
 	    getPalindromeInOddLen(s, mid + 1, start, end);
 	}
@@ -51,9 +54,9 @@ public class palindromes_in_string
 	}
     }
 
-    private void getPalindromeInEvenLen(String s, int start, int end)
+    private void getPalindromeInEvenLen(String s, int mid, int start, int end)
     {
-	int i = (end - start) / 2 + start;
+	int i = mid;
 	int j = i + 1;
 
 	char[] array = s.toCharArray();
