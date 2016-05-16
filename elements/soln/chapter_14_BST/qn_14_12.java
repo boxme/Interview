@@ -15,7 +15,7 @@ public class qn_14_2
 
 	Node root = new Node(curr.value);
 	root.left = buildBstFromPreorder(nodes, index + 1, min, root.value);
-	root.right = buildBstFromPreorder(nodex, index + 1, root.value, max);
+	root.right = buildBstFromPreorder(nodes, index + 1, root.value, max);
 
 	return root;
     }

@@ -12,7 +12,7 @@ public class qn_11_18 {
             temp = scanner.nextLine();
             if (count == 0) {
                 majority = temp;
-                count++;
+                count = 1;
             } else if (majority.equals(temp)) {
                 count++;
             } else {

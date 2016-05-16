@@ -47,7 +47,7 @@ public static int searchR(String[] strings, int lo, int hi, String str)
 {
     if (lo > hi) return -1;
 
-    int mid = hi - lo / 2 + lo;
+    int mid = (hi - lo) / 2 + lo;
 
     if (strings[mid].isEmpty())
     {

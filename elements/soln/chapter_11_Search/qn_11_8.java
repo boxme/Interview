@@ -36,4 +36,32 @@ public class qn_11_8 {
         int bkb1 = k - lo - 1 < 0 ? Integer.MIN_VALUE : B[k - lo - 1];
         return Math.max(ab1, bkb1);
     }
+    
+    // Easier O(k) solution kth smallest
+    public static int solution(int[] A, int[] B, int k) {
+        int ptrA = 0;
+        int ptrB = 0;
+        
+        int ans = 0;
+        while (k > 0 && (ptrA < A.length || ptrB < B.length)) {
+            int a = ptrA < A.length ? A[ptrA] : Integer.MAX_VALUE;
+            int b = ptrB < B.length ? B[ptrB] : Integer.MAX_VALUE;
+            
+            if (a < b) {
+                ans = a;
+                ptrA++;
+            } else if (a > b) {
+                ans = b;
+                ptrB++;
+            } else {
+                ans = a;
+                ptrB++;
+                ptrA++;
+                k--;
+            }
+            k--;
+        }
+        
+        return ans;
+    }
 }
