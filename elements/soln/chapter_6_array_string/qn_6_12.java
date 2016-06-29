@@ -27,16 +27,16 @@ public class qn_6_12 {
     }
 
     private static void swap(int[] A, int i, int j) {
-	A[i] ^= A[j];
-	A[j] ^= A[i];
-	A[i] ^= A[j];
+            A[i] ^= A[j];
+            A[j] ^= A[i];
+            A[i] ^= A[j];
     }
 
     private static void reverse(int[] A, int i, int j) {
-	while (i < j) {
-	    swap(A, i, j);
-	    i++;
-	    j--;
-	}
+            while (i < j) {
+                swap(A, i, j);
+                i++;
+                j--;
+            }
     }
 }
