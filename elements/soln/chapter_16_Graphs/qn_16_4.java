@@ -69,23 +69,24 @@ public class qn_16_4 {
 
     public static boolean isUndirectedGraphAllInACycle(List<Vertex> graph) {
         if (!graph.isEmpty()) {
-            DFS(graph.get(0), null, 0);
+            if (!DFS(graph.get(0), null, 1)) return true;
         }
 
         return false;
     }
 
     private static boolean DFS(Vertex curr, Vertex prev, int time) {
-        curr.d = ++time;
+        curr.d = ++time; // discovery time is set for good
         curr.l = Integer.MAX_VALUE;
 
         For (Vertex next : curr.edges) {
             if (next != prev) {
-                if (next.d != 0) {
+                if (next.d != 0) { // Back edge
+                    // Next node has been visited before, check the time it was discovered
                     curr.l = Math.min(curr.l, next.d);
                 } else {
-                    if (!DFS(next, curr, time)) {
-                        return false;
+                    if (!DFS(next, curr, time)) { // front edge
+                        return false; // stop immediately when one part isnt in the cycle, we need all to be in cycle
                     }
 
                     curr.l = Math.min(curr.l, next.l);
@@ -93,6 +94,7 @@ public class qn_16_4 {
             }
         }
 
+        // discovery time is more than leaving time when there is a back node
         return (prev == null || curr.l < curr.d);
     }
 }

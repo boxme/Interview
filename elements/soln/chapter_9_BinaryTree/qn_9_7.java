@@ -13,11 +13,11 @@ class qn_9_7 {
         }
 
         recreateBinaryTreeHelperFromPreOrder(
-                inOrder, 0, inOrder.length, preOrder, 0, preOrder.length, nodeToIndexMap);
+                0, inOrder.length, preOrder, 0, preOrder.length, nodeToIndexMap);
     }
 
     private Node recreateBinaryTreeHelperFromPreOrder(
-            int[] inOrder, int inOrderStart, int inOrderEnd, 
+            int inOrderStart, int inOrderEnd,
             int[] preOrder, int preOrderStart, int preOrderEnd,
             HashMap<Integer> nodeToIndexMap) {
         
@@ -32,13 +32,13 @@ class qn_9_7 {
         
         // Build left subtree
         node.left = recreateBinaryTreeHelperFromPreOrder(
-                inOrder, inOrderStart, index,
+                inOrderStart, index,
                 preOrder, preOrderStart + 1, preOrderStart + leftSubTreeSize + 1,
                 nodeToIndexMap);
 
         // Build right subtree
         node.right = recreateBinaryTreeHelperFromPreOrder(
-                inOrder, index + 1, inOrderEnd,
+                index + 1, inOrderEnd,
                 preOrder, preOrderStart + leftSubTreeSize + 1, preOrderEnd,
                 nodeToIndexMap);
 
@@ -46,7 +46,7 @@ class qn_9_7 {
     }
     
     private Node recreateBinaryTreeHelperFromPostOrder(
-            int[] inOrder, int inOrderStart, int inOrderEnd, 
+            int inOrderStart, int inOrderEnd,
             int[] postOrder, int postOrderStart, int postOrderEnd,
             HashMap<Integer> nodeToIndexMap) {
         
@@ -61,13 +61,13 @@ class qn_9_7 {
         
         // Build left subtree
         node.left = recreateBinaryTreeHelperFromPostOrder(
-                inOrder, inOrderStart, index,
+                inOrderStart, index,
                 postOrder, postOrderStart, postOrderEnd - rightSubTreeSize - 1,
                 nodeToIndexMap);
 
         // Build right subtree
         node.right = recreateBinaryTreeHelperFromPostOrder(
-                inOrder, index + 1, inOrderEnd,
+                index + 1, inOrderEnd,
                 postOrder, postOrderEnd - rightSubTreeSize - 1, postOrderEnd - 1,
                 nodeToIndexMap);
 

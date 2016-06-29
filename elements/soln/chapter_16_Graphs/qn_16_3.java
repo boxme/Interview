@@ -33,7 +33,7 @@ public class qn_16_3 {
                 }
             }
 
-            curr.poll();
+            q.poll();
         }
 
         return true;
@@ -44,7 +44,7 @@ public class qn_16_3 {
             if (next.d == -1) {
                 next.d = 1 - s.d;
 
-                if (!DFS) {
+                if (!DFS(next)) {
                     return false;
                 }
             } else if (next.d == s.d){

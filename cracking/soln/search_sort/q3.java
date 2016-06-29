@@ -66,50 +66,50 @@ public static int binarySearch(int[] array, int lo, int hi, int num)
     // Left side is properly ordered
     if (array[lo] < array[mid])
     {
-	if (array[lo] <= num && num <= array[mid])
-	{
-	    // Search left
-	    return binarySearch(array, lo, mid - 1, num);
-	}
-	else
-	{
-	    // Search right
-	    return binarySearch(array, mid + 1, hi, num);
-	}
+        if (array[lo] <= num && num <= array[mid])
+        {
+            // Search left
+            return binarySearch(array, lo, mid - 1, num);
+        }
+        else
+        {
+            // Search right
+            return binarySearch(array, mid + 1, hi, num);
+        }
     }
     // Right side is properly ordered
     else if (array[mid] < array[right])
     {
-	if (array[mid] <= num && num <= array[hi])
-	{
-	    // Search right
-	    return binarySearch(array, mid + 1, hi, num);
-	}
-	else
-	{
-	    // Search left
-	    return binarySearch(array, lo, mid - 1, num);
-	}
+        if (array[mid] <= num && num <= array[hi])
+        {
+            // Search right
+            return binarySearch(array, mid + 1, hi, num);
+        }
+        else
+        {
+            // Search left
+            return binarySearch(array, lo, mid - 1, num);
+        }
     }
     // Left side is all repeat
     else if (array[lo] == array[mid])
     {
-	if (array[mid] != array[hi)
-	{
-	    // Search right
-	    return binarySearch(array, mid + 1, hi, num);
-	}
-	else
-	{
-	    // Takes care of an array like [7, 7, 7, 4, 5, 6, 7, 7]
-	    // Search for both halves
-	    int result = binarySearch(array, lo, mid - 1, num);
-	    if (result == -1)
-	    {
-		return binarySearch(array, mid + 1, hi, num);
-	    }
-	    return result;
-	}
+        if (array[mid] != array[hi))
+        {
+            // Search right
+            return binarySearch(array, mid + 1, hi, num);
+        }
+        else
+        {
+            // Takes care of an array like [7, 7, 7, 7, 5, 6, 7, 7]
+            // Search for both halves
+            int result = binarySearch(array, lo, mid - 1, num); // search left first
+            if (result == -1)
+            {
+                return binarySearch(array, mid + 1, hi, num);   // then search right
+            }
+            return result;
+        }
     }
 
     return -1;

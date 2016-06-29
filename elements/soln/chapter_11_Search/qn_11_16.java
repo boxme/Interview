@@ -42,3 +42,22 @@ public class qn_11_16 {
         return new Pair<Integer, Integer>(missOrDup ^ missXORDup, missOrDup);
     }
 }
+
+/**
+ 
+ Scan the array 3 times:
+ 
+ XOR together all the array elements -> A. XOR together all the numbers from 0 to N-1 -> B. Now A XOR B = X XOR D, where X is the removed element, and D is the duplicate element.
+ 
+ Choose any non-zero bit in A XOR B. XOR together all the array elements where this bit is set -> A1. XOR together all the numbers from 0 to N-1 where this bit is set -> B1. Now either A1 XOR B1 = X or A1 XOR B1 = D.
+ 
+ Scan the array once more and try to find A1 XOR B1. If it is found, this is the duplicate element. If not, the duplicate element is A XOR B XOR A1 XOR B1.
+ 
+ Properties
+ A XOR B = C ===> C XOR A = B and C XOR B = A
+ 
+ and it immediately follows that
+ 
+ (PARTIAL SUM) XOR (MISSING ELEMENT) = (TOTAL) =>
+ (TOTAL) XOR ( PATIAL SUM) = (MISSING ELEMNT)
+ **/

@@ -11,11 +11,13 @@ class qn_11_2 {
 
         int mid = lo + (hi - lo) / 2;
         int value = array[mid];
-        if (value > k) {
+        if (value == k) {
             int index = mid;
-            int nextIndex = -1
+            int nextIndex = -1;
             nextIndex = binarySearch(array, lo, mid - 1, k);
             return nextIndex == -1 ? index : nextIndex;
+        } else if (value > k) {
+            return binarySearch(array, lo, mid - 1, k);
         } else {
             return binarySearch(array, mid + 1, hi, k);
         }

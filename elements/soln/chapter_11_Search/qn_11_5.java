@@ -23,7 +23,7 @@ class qn_11_5 {
     }
 
     private static int searchSmallestHelper(int[] array, int lo, int hi) {
-        if (lo == hi return left;
+        if (lo == hi) return left;
 
         int mid = lo + (hi - lo) / 2;
         if (array[mid] > array[hi]) {
